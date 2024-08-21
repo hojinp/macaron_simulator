@@ -1,0 +1,6 @@
+---
+transfer: 0.009 # egress cost, Per GB
+put: 0.000005
+get: 0.0000004
+delete: 0.0
+capacity: 0.00003142 # Per (GB * hr), AWS S3 standard storage

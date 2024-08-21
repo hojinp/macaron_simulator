@@ -1,0 +1,23 @@
+---
+machines:
+  - name: "r5.xlarge"
+    capacity: 26 # GB
+    ondemandPrice: 0.252 # $/hour
+  - name: "r5.2xlarge"
+    capacity: 52
+    ondemandPrice: 0.504
+  - name: "r5.4xlarge"
+    capacity: 106
+    ondemandPrice: 1.008
+  - name: "r5.8xlarge"
+    capacity: 212
+    ondemandPrice: 2.016
+  - name: "r5.12xlarge"
+    capacity: 318
+    ondemandPrice: 3.024
+  - name: "r5.16xlarge"
+    capacity: 424
+    ondemandPrice: 4.032
+  - name: "r5.24xlarge"
+    capacity: 636
+    ondemandPrice: 6.048
