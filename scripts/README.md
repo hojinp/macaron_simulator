@@ -12,6 +12,7 @@ We also recommend using a terminal multiplexer like [Screen](https://linuxize.co
   - [Evaluations of Macaron’s Effectiveness in Minimizing Costs](#evaluations-of-macarons-effectiveness-in-minimizing-costs)
     - [Generating Figure 7](#generating-figure-7)
     - [Generating Figure 9](#generating-figure-9)
+    - [Generating Figure 10](#generating-figure-10)
     - [Generating Figure 12](#generating-figure-12)
   - [Evaluations of Macaron with Cache Cluster](#evaluations-of-macaron-with-cache-cluster)
     - [Generating Figure 11](#generating-figure-11)
@@ -90,7 +91,7 @@ python3 /home/ubuntu/macaron_simulator/scripts/figure7/run_macaron_simulator.py 
 ```
 
 We also offer an optional parameter `-s`, that limits the simulation to a subset of traces (Uber1, IBMTrace009, IBMTrace012), necessary for generating Figure 7.
-However, to produce other figures, such as Figure 9 and Figure 12, the experiments must be executed across all traces.
+However, to produce other figures, such as Figure 9, 10 and 12, the experiments must be executed across all traces.
 
 ### Generating Figure 7
 
@@ -127,9 +128,18 @@ python3 ${path/to/project_directory}/scripts/figure9/figure9.py \
     -d ${path/to/project_directory}
 ```
 
+### Generating Figure 10
+
+5. The necessary data has already been generated from steps 1-2 above. To create and save `figure10.png` in the `figure10` directory, run the following command:
+
+```console
+python3 ${path/to/project_directory}/scripts/figure10/figure10.py \
+    -d ${path/to/project_directory}
+```
+
 ### Generating Figure 12
 
-5. To generate data for Figure 12a, repeat steps 1-2, but replace `cross-cloud` with `cross-10p` and `cross-1p`. Alternatively, download the precomputed results by following steps 3a-3b, replacing `costs-cross-10p.tar.gz` and `costs-cross-1p.tar.gz` instead. This will provide you with the necessary data to produce Figure 12a without needing to rerun simulations.
+6. To generate data for Figure 12a, repeat steps 1-2, but replace `cross-cloud` with `cross-10p` and `cross-1p`. Alternatively, download the precomputed results by following steps 3a-3b, replacing `costs-cross-10p.tar.gz` and `costs-cross-1p.tar.gz` instead. This will provide you with the necessary data to produce Figure 12a without needing to rerun simulations.
 
 The expected directory structure after having data should be:
 ```console
@@ -160,14 +170,14 @@ python3 ${path/to/project_directory}/scripts/figure12/figure12b.py \
 In this section, we conduct simulations of Macaron when the desired latencies are given as inputs.
 The experiments will generate data for Figure 11.
 
-6. First, create the necessary directories for running the simulation and storing the results:
+7. First, create the necessary directories for running the simulation and storing the results:
 
 ```console
 python3 ${path/to/project_directory}/scripts/figure11/create_experiment_directories.py \
     -d ${path/to/project_directory}
 ```
 
-7. You can run all experiments at once or specify the `method` parameter (`-m`) with one of the options: *remote*, *replicated*, *ecpc*, *macaron*, or *macaron-cc*.
+8. You can run all experiments at once or specify the `method` parameter (`-m`) with one of the options: *remote*, *replicated*, *ecpc*, *macaron*, or *macaron-cc*.
 If you wish to run a simulation for a specific trace, set the trace name with `-t` parameter (a list of available trace names can be found [here](./expected_time.md)):
 
 ```console
@@ -189,7 +199,7 @@ ${path/to/project_directory}/scripts/results/latency/cross-cloud
 
 ### Generating Figure 11
 
-8. To generate the violin plot for Figure 11 in `figure11` directory, execute the following command:
+9. To generate the violin plot for Figure 11 in `figure11` directory, execute the following command:
 
 ```console
 python3 ${path/to/project_directory}/scripts/figure11/figure11.py \
@@ -202,7 +212,7 @@ python3 ${path/to/project_directory}/scripts/figure11/figure11.py \
 
 In this section, we evaluate the adaptivity of Macaron by running simulations on a composite trace formed by concatenating two distinct traces back-to-back. The experiments conducted here will generate data for Figure 8.
 
-9. In this evaluation, we utilize the `cost-minisim-test.jar` file located in the `${path/to/project_directory}/simulator/target` directory to run the experiments. 
+10. In this evaluation, we utilize the `cost-minisim-test.jar` file located in the `${path/to/project_directory}/simulator/target` directory to run the experiments. 
 Execute the following command to generate Macaron’s optimization decisions for various decay factors:
 
 ```console
@@ -221,7 +231,7 @@ ${path/to/project_directory}/scripts/results/adaptivity
 
 ### Generating Figure 8
 
-10. To generate the adaptivity graph for Figure 8 in `figure8` directory, execute the following command:
+11. To generate the adaptivity graph for Figure 8 in `figure8` directory, execute the following command:
 
 ```console
 python3 ${path/to/project_directory}/scripts/figure8/figure8.py \
